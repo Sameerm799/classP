@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity,  Alert, } from 'react-native'
 import React, {useState} from 'react'
 import {useHeaderHeight} from '@react-navigation/elements'
-import AddcardScreen from './AddCard'
+import AddcardScreen from './AddPost'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { usePosts } from '../context/PostProvider';
 
@@ -55,13 +55,14 @@ const PostDetail = (props) =>{
         const result = await AsyncStorage.getItem('posts')
         let posts = [];
         if(result !== null)
-            notes = JSON.parse(result);
+            posts = JSON.parse(result);
 
         const newPosts = posts.filter(p=>{
             if(p.id === post.id){
                 p.title = title;
                 p.desc = desc; 
                 p.isUpdated = true;
+                p.time = time;
 
                 setPost(p);
             }
@@ -78,11 +79,12 @@ const PostDetail = (props) =>{
         setIsEdit(true);
         setShowModal(true);
        }
+       
 
        return(
         <>
         <ScrollView contentContainerStyle={[styles.container, {paddingTop: headerHeight}]}>
-            <Text style={styles.time}>{post.isUpdated ? `Updated at ${formatDate(post.time)}`: `Created at ${formateDate(post.time)}`}</Text>
+            <Text style={styles.time}>{post.isUpdated ? `Updated at ${formatDate(post.time)}` : `Created at ${formatDate(post.time)}`}</Text>
             <Text style={styles.title}>{post.title}</Text>
             <Text style={styles.desc}>{post.desc}</Text>
         </ScrollView>
@@ -107,7 +109,7 @@ const PostDetail = (props) =>{
 
 const styles = StyleSheet.create({
     container:{
-        
+        backgroundColor: '#e4e6f7',
         paddingHorizontal: 15, 
     },
     title:{
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         paddingVertical: 15,
+        backgroundColor: '#e4e6f7',
     },
     editWrapper:{
         width: 60,
@@ -135,7 +138,7 @@ const styles = StyleSheet.create({
         borderColor: '#3b43c4',
         borderWidth: 1,
         position: 'absolute',
-        right: 50,
+        right: 30,
          
          //change this after 
         
@@ -149,6 +152,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: '#3b43c4',
         borderWidth: 1,
+        left: 90,
          
          //change this after 
         

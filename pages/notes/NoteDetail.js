@@ -114,7 +114,7 @@ const NoteDetail = (props) => {
 
 const styles = StyleSheet.create({
     container:{
-        
+        backgroundColor: '#e4e6f7',
         paddingHorizontal: 15, 
     },
     title:{
@@ -130,7 +130,8 @@ const styles = StyleSheet.create({
     buttonWrapper:{
         flexDirection: 'row',
         justifyContent: 'center',
-        paddingVertical: 15,
+        paddingVertical: 10,
+        backgroundColor: '#e4e6f7',
     },
     editWrapper:{
         width: 60,
@@ -142,7 +143,8 @@ const styles = StyleSheet.create({
         borderColor: '#3b43c4',
         borderWidth: 1,
         position: 'absolute',
-        right: 50,
+        right: 30,
+       
          
          //change this after 
         
@@ -156,6 +158,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: '#3b43c4',
         borderWidth: 1,
+        left: 90,
          
          //change this after 
         

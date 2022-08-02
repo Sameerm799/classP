@@ -1,9 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useState} from 'react';
-import { KeyboardAvoidingView, TextInput,TouchableOpacity, StyleSheet, ScrollView, View, Text, SafeAreaView, Image, ImagePickerIOS, FlatList } from 'react-native';
+import { KeyboardAvoidingView, TextInput,TouchableOpacity, StyleSheet, ScrollView, View, Text, FlatList } from 'react-native';
 import {Avatar, Card, Title, Paragraph, Button} from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
-import AddcardScreen from './AddCard';
+import AddcardScreen from './AddPost';
 import { usePosts } from '../context/PostProvider';
 import Post from './Post';
 
@@ -20,92 +20,26 @@ const ShowcasesScreen = ({ navigation }) => {
       await AsyncStorage.setItem('posts', JSON.stringify(updatedPosts));
      };
      
-    // const[card, setCard] = useState();
-    // const[cardItems, setCardItems] = useState([]);
 
     const openPost = (post) =>{
       navigation.navigate('PostDetail', {post});
     }
     
 
-    // const pickImage = async () =>{
-    //     let result = await ImagePicker.launchImageLibraryAsync({
-    //         mediaTypes: ImagePicker.MediaTypeOptions.All,
-    //         allowsEditing: true,
-    //         aspect: [4, 3],
-    //         quality: 1,
-    //       });
-      
-    //       console.log(result);
-      
-    //       if (!result.cancelled) {
-    //         setImage(result.uri);
-    //       }
-    //     };
-    // return(
-    //     <>
-    //     {/*<Card>
-    //         <Card.Content>
-    //             <Title>Yo</Title>
-    //             <Paragraph>Some words about image</Paragraph>
-    //         </Card.Content>
-    //         <Card.Cover source={{uri: image }}/>
-    //         <Card.Actions>
-    //             <Button onPress={pickImage}>Add</Button>
-               
-    //         </Card.Actions>
-    // </Card>*/}
-    //    <View>
-    //     <FlatList
-    //         data={cards}
-    //         renderItem={({item}) => <CardItem card={item}/>}
-    //         />
-    //     <TouchableOpacity
-    //     onPress={() => navigation.navigate('AddShowcase')}><Text>Press</Text></TouchableOpacity>
-        
-    //    </View>
-    //    </>
-    // )
-   
-    
-    // const addElementToarray = () =>{
-    //     cards.push(InputDATA.toString());
-    //     Alert.alert('Data added successfully ....');
-    //     console.log(cards);
-    // }
-    //
-    
     
     return(
-        // <ScrollView>
-        //   {postState.map((item) => 
-        //   <Card>
-        //     <Card.Content>
-        //         <Title>{item.title}</Title>
-        //         <Paragraph>{item.desc}</Paragraph>
-        //     </Card.Content>
-        //     <Card.Cover source={{uri: item.image }}/>
-            
-        //   </Card>)}
-        //   <KeyboardAvoidingView>
-        //   <TouchableOpacity onPress={() => navigation.navigate('AddShowcase')}>
-        //                 <View style={styles.addWrapper}>
-        //                     <Text style={styles.addText}>+</Text>
-        //                 </View>
-        //             </TouchableOpacity>
-        //         </KeyboardAvoidingView>
-        //    {/* <Button onPress={addElementToarray} title={'add that'}/>*/}
-           
-        // </ScrollView>
-        <View>
+  
+        <View style = {styles.container}>
           <FlatList
+            style={styles.flatlist}
             data={posts}
             keyExtractor={item => item.id.toString()}
             renderItem={({item}) => <Post onPress={() => openPost(item)} item={item} />}
           />
-          <TouchableOpacity onPress={() => setModalVisible(true)}>
+          
+          <TouchableOpacity style={styles.inputWrapper} onPress={() => setModalVisible(true)}>
                         <View style={styles.addWrapper}>
-                            <Text style={styles.addText}>+</Text>
+                            <Text style={styles.addText}>Showoff your Work +</Text>
                         </View>
           </TouchableOpacity>
           <AddcardScreen visible={modalVisible} onClose={() => setModalVisible(false)} 
@@ -114,10 +48,22 @@ const ShowcasesScreen = ({ navigation }) => {
     );
 };
 const styles = StyleSheet.create({
-    
+    container:{
+      flex:1,
+      backgroundColor:'#e4e6f7'
+    },
+
+    inputWrapper:{
+      position: 'absolute',
+      left: 110, 
+      bottom: 30,
+      width: '100%',
+      flexDirection: 'row', 
+      justifyContent: 'space-around',
+      alignItems: 'center',
+    },
     addWrapper:{
-      
-      width: 60,
+      width: 160,
       height: 60, 
       backgroundColor: '#FFF',
       borderRadius: 60, 

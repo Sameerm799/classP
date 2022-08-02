@@ -11,10 +11,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TodoScreen from './pages/todoTask/TodoPage';
 import NotesScreen from './pages/notes/NotesPage';
 import ShowcasesScreen from './pages/imageshowcase/ShowcasePage';
-import AddcardScreen from './pages/imageshowcase/AddCard';
+import AddcardScreen from './pages/imageshowcase/AddPost';
 import NoteDetail from './pages/notes/NoteDetail';
 import NoteProvider from './pages/context/NoteProvider';
 import PostProvider from './pages/context/PostProvider';
+import PostDetail from './pages/imageshowcase/PostDetail';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -67,6 +68,7 @@ function ShowcaseStack(){
     <PostProvider>
     <Stack.Navigator
     initialRouteName='showcase'
+    screenOptions={{headerTitle: '', headerTransparent: true}}
     >
       <Stack.Screen
         name="Showcase"
@@ -77,9 +79,9 @@ function ShowcaseStack(){
         />
       <Stack.Screen
         name="PostDetail"
-        component={AddcardScreen}
+        component={PostDetail}
         options={{
-          headerShown: false
+          
         }}
         />
     </Stack.Navigator>

@@ -8,21 +8,25 @@ const Note = ({item, onPress}) =>{
   return (
     
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Text numberOfLines={2}>{title}</Text>
+      <Text style={styles.title} numberOfLines={1}>{title}</Text>
       <Text numberOfLines={3}>{desc}</Text>
     </TouchableOpacity>
   );
 };
 
-const width = Dimensions.get('window').width - 40;
+
 
 const styles = StyleSheet.create({
     container: {
         
         backgroundColor: '#fff',
-        width: width/2,
         padding: 8,
         borderRadius: 10,
+        margin:8,
+    },
+    title:{
+      fontSize: 30,
+      
     }
 })
 

@@ -53,22 +53,22 @@ const AddNoteScreen = ({ visible, onClose, onSubmit, note, isEdit }) =>{
     
     return(
         <>
-        <StatusBar hidden />
+        
         <Modal visible={visible} animationType='fade'>
-            <ScrollView>
-            <TextInput value={title} onChangeText={(text) => handleChangeText(text, 'title')} style={styles.input} placeholder={'What to do today'} maxLength={20} />
-            <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')}  style={styles.input} placeholder={'What to do today'} multiline  />
+            <ScrollView style={styles.container}>
+            <TextInput value={title} onChangeText={(text) => handleChangeText(text, 'title')} style={styles.title} placeholder={'Your Note Title'} maxLength={20} />
+            <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')}  style={styles.input} placeholder={'Write the details here!'} multiline  />
             
             <View style={styles.buttonWrapper}>
             <TouchableOpacity onPress={handleSubmit}>
                         <View style={styles.addWrapper}>
-                            <Text style={styles.addText}>+</Text>
+                            <Text>Add</Text>
                         </View>
             </TouchableOpacity>
             {title.trim() || desc.trim() ? ( 
                 <TouchableOpacity onPress={closeModal} >
-                            <View style={styles.addWrapper}>
-                                <Text style={styles.addText}>x</Text>
+                            <View style={styles.cancelWrapper}>
+                                <Text>Cancel</Text>
                             </View>
                 </TouchableOpacity>
             ) : null}
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         paddingVertical: 15,
+        
     },
     inputWrapper: {
       position: 'absolute',
@@ -111,6 +112,18 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
       alignItems: 'center'
     },
+    title: {
+      paddingVertical: 15,
+      paddingHorizontal: 15,  
+      backgroundColor: '#fcfcfe',
+      borderRadius: 60,
+      borderColor: '#3b43c4',
+      borderWidth: 1,
+      width: '95%', 
+      margin: 10,
+      fontSize: 30,
+
+    },
     input: {
       paddingVertical: 15,
       paddingHorizontal: 15,  
@@ -118,7 +131,8 @@ const styles = StyleSheet.create({
       borderRadius: 60,
       borderColor: '#3b43c4',
       borderWidth: 1,
-      width: 250, 
+      width: '95%', 
+      margin: 10,
     },
     addWrapper:{
       width: 60,
@@ -130,6 +144,16 @@ const styles = StyleSheet.create({
       borderColor: '#3b43c4',
       borderWidth: 1,
     },
-    addText:{},
+    cancelWrapper:{
+      width: 60,
+      height: 60, 
+      backgroundColor: '#ED2321',
+      borderRadius: 60, 
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderColor: '#3b43c4',
+      borderWidth: 1,
+    }
+    
   });
 export default AddNoteScreen;

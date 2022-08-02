@@ -26,18 +26,17 @@ const openNote = (note) =>{
 }
 
     return(
-        <View>
+        <View style = {styles.container}>
           <FlatList 
             data={notes} 
-            numColumns={2}
-            columnWrapperStyle={{justifyContent: 'space-between', marginBottom: 15,}} 
+            style = {styles.flatlist}
             keyExtractor={item=> item.id.toString()} 
             renderItem={({item}) => <Note onPress={() => openNote(item)} item={item} />} 
           />
           
-          <TouchableOpacity onPress={() => setModalVisible(true)}>
+          <TouchableOpacity style={styles.inputWrapper} onPress={() => setModalVisible(true)}>
                         <View style={styles.addWrapper}>
-                            <Text style={styles.addText}>+</Text>
+                            <Text style={styles.addText}>Add a Note +</Text>
                         </View>
                     </TouchableOpacity>
                     <AddNoteScreen visible={modalVisible} onClose={() => setModalVisible(false)} onSubmit={handleSubmit}/>
@@ -66,11 +65,13 @@ const styles = StyleSheet.create({
     },
     inputWrapper: {
       position: 'absolute',
+      left: 110, 
       bottom: 30,
       width: '100%',
       flexDirection: 'row', 
       justifyContent: 'space-around',
-      alignItems: 'center'
+      alignItems: 'center',
+       
     },
     input: {
       paddingVertical: 15,
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
       width: 250, 
     },
     addWrapper:{
-      width: 60,
+      width: 160,
       height: 60, 
       backgroundColor: '#FFF',
       borderRadius: 60, 
@@ -90,8 +91,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderColor: '#3b43c4',
       borderWidth: 1,
-      position: 'absolute',
-      right: 15, 
+      
       //change this after 
       
     },
