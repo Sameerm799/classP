@@ -40,7 +40,7 @@ const NoteDetail = (props) => {
    }
 
    const displayDeleteAlert = () =>{
-    Alert.alert('Are you sure?', 'This action will delete your note',[
+    Alert.alert('Are you sure?', 'This will delete your note forever',[
         {
             text: 'Delete', 
             onPress: deleteNote
@@ -85,9 +85,9 @@ const NoteDetail = (props) => {
   return (
     <>
     <ScrollView contentContainerStyle={[styles.container, {paddingTop: headerHeight}]}>
-      <Text style={styles.time}>{note.isUpdated ? `Updated At ${formatDate(note.time)}` : `Created At ${formatDate(note.time)}`}</Text>
+      <Text style={styles.time}>{note.isUpdated ? `Edited At ${formatDate(note.time)}` : `Created At ${formatDate(note.time)}`}</Text>
       <Text style={styles.title}>{note.title}</Text>
-      <Text style={styles.desc}>{note.desc}</Text>
+      <Text>{note.desc}</Text>
 
      
     </ScrollView>
@@ -121,11 +121,8 @@ const styles = StyleSheet.create({
         fontSize: 30, 
         
     },
-    desc:{
-
-    },
     time:{
-
+        opacity: 0.5,
     },
     buttonWrapper:{
         flexDirection: 'row',

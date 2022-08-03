@@ -86,7 +86,7 @@ const PostDetail = (props) =>{
         <ScrollView contentContainerStyle={[styles.container, {paddingTop: headerHeight}]}>
             <Text style={styles.time}>{post.isUpdated ? `Updated at ${formatDate(post.time)}` : `Created at ${formatDate(post.time)}`}</Text>
             <Text style={styles.title}>{post.title}</Text>
-            <Text style={styles.desc}>{post.desc}</Text>
+            <Text>{post.desc}</Text>
         </ScrollView>
         
         
@@ -116,11 +116,9 @@ const styles = StyleSheet.create({
         fontSize: 30, 
         
     },
-    desc:{
-
-    },
+    
     time:{
-
+        opacity: 0.5,
     },
     buttonWrapper:{
         flexDirection: 'row',

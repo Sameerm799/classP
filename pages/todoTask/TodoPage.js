@@ -1,19 +1,14 @@
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, Platform, TouchableOpacity, StyleSheet, View, Text, SafeAreaView, Keyboard } from 'react-native';
-import { HelperText } from 'react-native-paper';
-
 import { TextInput } from 'react-native-gesture-handler';
 import Task from './AddTask';
+
+//screen that displays all the tasks
+//creates the task fomr ./AddTask import 
 
 const TodoScreen = ({ navigation }) => {
     const[task, setTask] = useState();
     const[taskItems, setTaskItems] = useState([]);
-
-    const handleAddTask = () => {
-        Keyboard.dismiss();
-        setTaskItems([...taskItems, task]);
-        setTask(null);
-    }
 
     const completeTask = (index) =>{
         let itemsCopy = [...taskItems];
@@ -21,6 +16,11 @@ const TodoScreen = ({ navigation }) => {
         setTaskItems(itemsCopy);
     }
 
+    const handleAddTask = () => {
+        Keyboard.dismiss();
+        setTaskItems([...taskItems, task]);
+        setTask(null);
+    }
     
     return(
         <View style = {styles.container}>

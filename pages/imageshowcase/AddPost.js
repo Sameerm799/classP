@@ -1,8 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Button, TextInput, Alert, KeyboardAvoidingView, Platform, Image, Modal, ScrollView, StatusBar} from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import {Avatar, Card, Title, Paragraph,} from 'react-native-paper';
+
 
 
  
@@ -48,51 +47,7 @@ const AddcardScreen = ({ visible, onClose, onSubmit, post, isEdit}) =>{
         onClose();
     }
 
-    // const pickImage = async () =>{
-    //     let result = await ImagePicker.launchImageLibraryAsync({
-    //         mediaTypes: ImagePicker.MediaTypeOptions.All,
-    //         allowsEditing: true,
-    //         aspect: [4, 3],
-    //         quality: 1,
-    //       });
-      
-    //       console.log(result);
-      
-    //       if (!result.cancelled) {
-    //         setImage(result.uri);
-    //       }
-    //     };
-    
-    // const handleAddData = () =>{
-    //     setData(current => [...current, {title: title, desc: desc, image: image}]);
-    //     navigation.navigate('Showcase', data);
-    // }
-    
-    // const addElementToarray = () =>{
-    //     cards.push(InputDATA.toString());
-    //     Alert.alert('Data added successfully ....');
-    //     console.log(cards);
-    // }
 
-    
-        // <View>
-        //     <TextInput placeholder='Title' value={title} onChangeText={text => setTitle(text)}/>
-        //     <TextInput placeholder='Desc' value={desc} onChangeText={text => setDesc(text)}/>
-
-            
-        //     <Button onPress={pickImage} title='pick'/>
-        //     <Card.Cover source={{uri: image }}/>
-
-        //     <Button title='send it' onPress={() => handleAddData()}/>
-        //     <TouchableOpacity onPress={() => handleAddData()}>
-        //                 <View>
-        //                     <Text>+</Text>
-        //                 </View>
-        //             </TouchableOpacity>
-        //     <Text>{title}</Text>
-
-        //    {/* <Button onPress={addElementToarray} title={'add that'}/>*/}
-        // </View>
         return(
         <>
         
@@ -102,18 +57,20 @@ const AddcardScreen = ({ visible, onClose, onSubmit, post, isEdit}) =>{
                 <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')} style = {styles.input} placeholder={'What'} maxLength={60} />
 
             <View style={styles.buttonWrapper}>
+            {title.trim() || desc.trim() ? ( 
             <TouchableOpacity onPress={handleSubmit}>
                         <View style={styles.addWrapper}>
                             <Text>+</Text>
                         </View>
             </TouchableOpacity>
-            {title.trim() || desc.trim() ? ( 
+             ) : null}
+            
                 <TouchableOpacity onPress={closeModal} >
                             <View style={styles.cancelWrapper}>
                                 <Text>Cancel</Text>
                             </View>
                 </TouchableOpacity>
-            ) : null}
+            
             </View>
             </ScrollView>
             <TouchableWithoutFeedback>

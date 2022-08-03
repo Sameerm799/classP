@@ -59,19 +59,22 @@ const AddNoteScreen = ({ visible, onClose, onSubmit, note, isEdit }) =>{
             <TextInput value={title} onChangeText={(text) => handleChangeText(text, 'title')} style={styles.title} placeholder={'Your Note Title'} maxLength={20} />
             <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')}  style={styles.input} placeholder={'Write the details here!'} multiline  />
             
+             
             <View style={styles.buttonWrapper}>
+            {title.trim() || desc.trim() ? (
             <TouchableOpacity onPress={handleSubmit}>
                         <View style={styles.addWrapper}>
                             <Text>Add</Text>
                         </View>
             </TouchableOpacity>
-            {title.trim() || desc.trim() ? ( 
+            ) : null}
+            
                 <TouchableOpacity onPress={closeModal} >
                             <View style={styles.cancelWrapper}>
                                 <Text>Cancel</Text>
                             </View>
                 </TouchableOpacity>
-            ) : null}
+            
             </View>
             </ScrollView>
             <TouchableWithoutFeedback>

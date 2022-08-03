@@ -11,7 +11,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TodoScreen from './pages/todoTask/TodoPage';
 import NotesScreen from './pages/notes/NotesPage';
 import ShowcasesScreen from './pages/imageshowcase/ShowcasePage';
-import AddcardScreen from './pages/imageshowcase/AddPost';
 import NoteDetail from './pages/notes/NoteDetail';
 import NoteProvider from './pages/context/NoteProvider';
 import PostProvider from './pages/context/PostProvider';

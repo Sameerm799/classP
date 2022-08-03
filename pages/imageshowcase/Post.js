@@ -14,8 +14,6 @@ const Post = ({item, onPress}) =>{
             quality: 1,
           });
       
-          console.log(result);
-      
           if (!result.cancelled) {
             setImage(result.uri);
           }
