@@ -15,7 +15,7 @@ import NoteDetail from './pages/notes/NoteDetail';
 import NoteProvider from './pages/context/NoteProvider';
 import PostProvider from './pages/context/PostProvider';
 import PostDetail from './pages/imageshowcase/PostDetail';
-
+//Stack navigation
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
