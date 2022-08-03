@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState  } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+//provide the context and data of post
 const PostContext = createContext();
 const PostProvider = ({children}) => {
     const [posts, setPosts] = useState([]);

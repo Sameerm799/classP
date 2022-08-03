@@ -1,13 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState} from 'react';
 import {View,Text, StyleSheet, Modal, StatusBar, Keyboard, TouchableOpacity, TextInput, TouchableWithoutFeedback, ScrollView} from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import {Avatar, Card, Title, Paragraph,} from 'react-native-paper';
-import * as SQLite from "expo-sqlite";
-import { useNavigation } from '@react-navigation/native';
 
 
 
+//add note page, input title and desc
 
 const AddNoteScreen = ({ visible, onClose, onSubmit, note, isEdit }) =>{
     const [title, setTitle] = useState('');

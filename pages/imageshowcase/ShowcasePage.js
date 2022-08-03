@@ -1,11 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useState} from 'react';
-import { KeyboardAvoidingView, TextInput,TouchableOpacity, StyleSheet, ScrollView, View, Text, FlatList } from 'react-native';
-import {Avatar, Card, Title, Paragraph, Button} from 'react-native-paper';
-import * as ImagePicker from 'expo-image-picker';
+import { TouchableOpacity, StyleSheet, View, Text, FlatList } from 'react-native';
+
 import AddcardScreen from './AddPost';
 import { usePosts } from '../context/PostProvider';
 import Post from './Post';
+
+//show all posts screen, add post button
 
 const ShowcasesScreen = ({ navigation }) => {
      const[image, setImage] = useState(null);

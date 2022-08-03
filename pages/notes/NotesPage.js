@@ -7,6 +7,7 @@ import AddNoteScreen from './AddNote';
 import NoteDetail from './NoteDetail';
 import { useNotes } from '../context/NoteProvider';
 
+//show all notes, add note button
 
 const NotesScreen = ({ navigation }) =>{
     
@@ -92,7 +93,6 @@ const styles = StyleSheet.create({
       borderColor: '#3b43c4',
       borderWidth: 1,
       
-      //change this after 
       
     },
     addText:{},

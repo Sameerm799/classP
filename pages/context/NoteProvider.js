@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState  } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
+//provide the context and data of note
 const NoteContext = createContext();
 const NoteProvider = ({children}) => {
     const [notes, setNotes] = useState([]);

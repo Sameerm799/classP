@@ -2,10 +2,11 @@ import { View, Text, StyleSheet, Dimensions, TouchableOpacity} from 'react-nativ
 import React, {useState} from 'react'
 import * as ImagePicker from 'expo-image-picker'
 import {Card, Title, Paragraph, Button} from 'react-native-paper'
+
+//singular post showing details, edit and delete button
 const Post = ({item, onPress}) =>{
     const{title, desc} = item;
     const[image, setImage] = useState(null);
-
     const pickImage = async () =>{
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,

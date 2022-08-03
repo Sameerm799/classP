@@ -5,6 +5,7 @@ import AddcardScreen from './AddPost'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { usePosts } from '../context/PostProvider';
 
+//post pressed, show title and short description
 const PostDetail = (props) =>{
     const [post, setPost] = useState(props.route.params.post);
     const headerHeight = useHeaderHeight();
@@ -37,7 +38,7 @@ const PostDetail = (props) =>{
     }
 
     const displayDeleteAlert = () =>{
-        Alert.alert('Are you sure?', 'This action will delete your post',[
+        Alert.alert('Are you sure?', 'This will delete your note forever',[
             {
                 text: 'Delete', 
                 onPress: deletePost

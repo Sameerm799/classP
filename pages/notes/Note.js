@@ -3,6 +3,7 @@ import React from 'react'
 import { ImageBackground } from 'react-native-web';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+//show on note page, small bubble to be pressed
 const Note = ({item, onPress}) =>{
     const {title, desc} = item; 
   return (

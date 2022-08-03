@@ -5,8 +5,9 @@ import AddNoteScreen from './AddNote';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNotes } from '../context/NoteProvider';
 
+//note pressed, show this screen showing contents of note
 const NoteDetail = (props) => {
-   //const {note} = props.route.params;
+   
    const [note, setNote] = useState(props.route.params.note)
    const headerHeight = useHeaderHeight();
    const {setNotes} = useNotes();
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
         right: 30,
        
          
-         //change this after 
+   
         
       },
       deleteWrapper:{
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         left: 90,
          
-         //change this after 
+      
         
       },
 });

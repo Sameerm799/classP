@@ -2,10 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, Button, TextInput, Alert, KeyboardAvoidingView, Platform, Image, Modal, ScrollView, StatusBar} from 'react-native';
 
-
-
- 
-
+//add title, and desc of post
 const AddcardScreen = ({ visible, onClose, onSubmit, post, isEdit}) =>{
 
     const[title, setTitle] = useState('');
@@ -14,7 +11,7 @@ const AddcardScreen = ({ visible, onClose, onSubmit, post, isEdit}) =>{
     useEffect(() => {
         if(isEdit){
             setTitle(post.title);
-            setDesc(post.dec);
+            setDesc(post.desc);
         }
     }, [isEdit]);
 
@@ -54,13 +51,13 @@ const AddcardScreen = ({ visible, onClose, onSubmit, post, isEdit}) =>{
         <Modal visible={visible} animationType='fade'>
             <ScrollView style={styles.container}>
                 <TextInput value={title} onChangeText={(text) => handleChangeText(text, 'title')} style = {styles.title} placeholder={'Your Post Title'} maxLength={20} />
-                <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')} style = {styles.input} placeholder={'What'} maxLength={60} />
+                <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')} style = {styles.input} placeholder={'What is your post about?'} maxLength={60} />
 
             <View style={styles.buttonWrapper}>
             {title.trim() || desc.trim() ? ( 
             <TouchableOpacity onPress={handleSubmit}>
                         <View style={styles.addWrapper}>
-                            <Text>+</Text>
+                            <Text>Add</Text>
                         </View>
             </TouchableOpacity>
              ) : null}
