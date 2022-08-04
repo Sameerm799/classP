@@ -91,14 +91,14 @@ const PostDetail = (props) =>{
         </ScrollView>
         
         
-        <View style={styles.buttonWrapper}>
+        <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={openEditModal}>
-                <View style={styles.editWrapper}>
+                <View style={styles.editContainer}>
                      <Text style={styles.editText}>Edit</Text>
                  </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={displayDeleteAlert}>
-                <View style={styles.deleteWrapper}>
+                <View style={styles.deleteContainer}>
                     <Text style={styles.deleteText}>Delete</Text>
                 </View>
              </TouchableOpacity>
@@ -121,13 +121,13 @@ const styles = StyleSheet.create({
     time:{
         opacity: 0.5,
     },
-    buttonWrapper:{
+    buttonContainer:{
         flexDirection: 'row',
         justifyContent: 'center',
         paddingVertical: 15,
         backgroundColor: '#e4e6f7',
     },
-    editWrapper:{
+    editContainer:{
         width: 60,
         height: 60, 
         backgroundColor: '#FFF',
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
          //change this after 
         
       },
-      deleteWrapper:{
+      deleteContainer:{
         width: 60,
         height: 60, 
         backgroundColor: '#FFF',

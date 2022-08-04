@@ -53,17 +53,17 @@ const AddcardScreen = ({ visible, onClose, onSubmit, post, isEdit}) =>{
                 <TextInput value={title} onChangeText={(text) => handleChangeText(text, 'title')} style = {styles.title} placeholder={'Your Post Title'} maxLength={20} />
                 <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')} style = {styles.input} placeholder={'What is your post about?'} maxLength={60} />
 
-            <View style={styles.buttonWrapper}>
+            <View style={styles.buttonContainer}>
             {title.trim() || desc.trim() ? ( 
             <TouchableOpacity onPress={handleSubmit}>
-                        <View style={styles.addWrapper}>
+                        <View style={styles.addContainer}>
                             <Text>Add</Text>
                         </View>
             </TouchableOpacity>
              ) : null}
             
                 <TouchableOpacity onPress={closeModal} >
-                            <View style={styles.cancelWrapper}>
+                            <View style={styles.cancelContainer}>
                                 <Text>Cancel</Text>
                             </View>
                 </TouchableOpacity>
@@ -88,24 +88,14 @@ const styles = StyleSheet.create({
         flex: 1,
         zIndex: -1,
     },
-    taskWrapper:{
-      paddingTop: 10,
-      paddingHorizontal: 20,
-    },
-    task:{
-      marginTop: 30,
-    },
-    buttonWrapper:{
+    
+    buttonContainer:{
         flexDirection: 'row',
         justifyContent: 'center',
         paddingVertical: 15,
     },
-    buttonWrapper:{
-        flexDirection: 'row',
-        justifyContent: 'center', 
-        paddingVertical: 15,
-    },
-    inputWrapper: {
+    
+    inputContainer: {
       position: 'absolute',
       bottom: 30,
       width: '100%',
@@ -134,7 +124,7 @@ const styles = StyleSheet.create({
       width: '95%', 
       left: 10,
     },
-    addWrapper:{
+    addContainer:{
       width: 60,
       height: 60, 
       backgroundColor: '#FFF',
@@ -144,7 +134,7 @@ const styles = StyleSheet.create({
       borderColor: '#3b43c4',
       borderWidth: 1,
     },
-    cancelWrapper:{
+    cancelContainer:{
       width: 60,
       height: 60, 
       backgroundColor: '#ED2321',

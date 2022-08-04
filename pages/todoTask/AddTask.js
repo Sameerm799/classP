@@ -5,8 +5,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 //create singular task to display on screen
 const Task = (props) =>{
     return(
-        <View style={styles.item}>
-            <View style={styles.itemLeft}>
+        <View style={styles.task}>
+            <View style={styles.taskLeft}>
             <MaterialCommunityIcons name='check' style={styles.check}/>
                 <Text style={styles.text}>{props.text}</Text>
             </View>
@@ -15,7 +15,7 @@ const Task = (props) =>{
 }
 
 const styles = StyleSheet.create({
-    item: {
+    task: {
         backgroundColor:'#3b43c4',
         padding: 15, 
         borderRadius: 40,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 20,
     },
-    itemLeft: {
+    taskLeft: {
         flexDirection: 'row',
         alignItems: 'center',
         flexWrap: 'wrap'

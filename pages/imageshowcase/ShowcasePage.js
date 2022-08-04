@@ -38,8 +38,8 @@ const ShowcasesScreen = ({ navigation }) => {
             renderItem={({item}) => <Post onPress={() => openPost(item)} item={item} />}
           />
           
-          <TouchableOpacity style={styles.inputWrapper} onPress={() => setModalVisible(true)}>
-                        <View style={styles.addWrapper}>
+          <TouchableOpacity style={styles.inputContainer} onPress={() => setModalVisible(true)}>
+                        <View style={styles.addContainer}>
                             <Text style={styles.addText}>Showoff your Work +</Text>
                         </View>
           </TouchableOpacity>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
       backgroundColor:'#e4e6f7'
     },
 
-    inputWrapper:{
+    inputContainer:{
       position: 'absolute',
       left: 110, 
       bottom: 30,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
       alignItems: 'center',
     },
-    addWrapper:{
+    addContainer:{
       width: 160,
       height: 60, 
       backgroundColor: '#FFF',
@@ -72,8 +72,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderColor: '#3b43c4',
       borderWidth: 1,
+      
     },
-    addText:{},
+    
   });
 
 export default ShowcasesScreen;

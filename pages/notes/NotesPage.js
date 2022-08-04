@@ -35,8 +35,8 @@ const openNote = (note) =>{
             renderItem={({item}) => <Note onPress={() => openNote(item)} item={item} />} 
           />
           
-          <TouchableOpacity style={styles.inputWrapper} onPress={() => setModalVisible(true)}>
-                        <View style={styles.addWrapper}>
+          <TouchableOpacity style={styles.inputContainer} onPress={() => setModalVisible(true)}>
+                        <View style={styles.addContainer}>
                             <Text style={styles.addText}>Add a Note +</Text>
                         </View>
                     </TouchableOpacity>
@@ -57,14 +57,14 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#e4e6f7',
     },
-    noteWrapper:{
+    noteContainer:{
       paddingTop: 10,
       paddingHorizontal: 20,
     },
     note:{
       marginTop: 30,
     },
-    inputWrapper: {
+    inputContainer: {
       position: 'absolute',
       left: 110, 
       bottom: 30,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       width: 250, 
     },
-    addWrapper:{
+    addContainer:{
       width: 160,
       height: 60, 
       backgroundColor: '#FFF',
@@ -95,6 +95,6 @@ const styles = StyleSheet.create({
       
       
     },
-    addText:{},
+    
   });
 export default NotesScreen;

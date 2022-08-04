@@ -8,27 +8,27 @@ import Task from './AddTask';
 
 const TodoScreen = ({ navigation }) => {
     const[task, setTask] = useState();
-    const[taskItems, setTaskItems] = useState([]);
+    const[tasks, setTasks] = useState([]);
 
     const completeTask = (index) =>{
-        let itemsCopy = [...taskItems];
+        let itemsCopy = [...tasks];
         itemsCopy.splice(index, 1);
-        setTaskItems(itemsCopy);
+        setTasks(itemsCopy);
     }
 
     const handleAddTask = () => {
         Keyboard.dismiss();
-        setTaskItems([...taskItems, task]);
+        setTasks([...tasks, task]);
         setTask(null);
     }
     
     return(
         <View style = {styles.container}>
 
-            <View style={styles.taskWrapper}>
+            <View style={styles.taskContainer}>
                 <View style={styles.task}>
                     {
-                        taskItems.map((item, index) => {
+                        tasks.map((item, index) => {
                             return(
                                 <TouchableOpacity key={index} onPress={() =>completeTask(index)}>
                                     <Task text={item} />
@@ -41,12 +41,12 @@ const TodoScreen = ({ navigation }) => {
 
             <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.inputWrapper}>
+                style={styles.inputContainer}>
 
                     <TextInput style={styles.input} placeholder={'What to do today'} maxLength={20} value={task} onChangeText= {text => setTask(text)}/>
 
                     <TouchableOpacity onPress={() => handleAddTask()}>
-                        <View style={styles.addWrapper}>
+                        <View style={styles.addContainer}>
                             <Text style={styles.addText}>+</Text>
                         </View>
                     </TouchableOpacity>
@@ -59,14 +59,14 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#e4e6f7',
     },
-    taskWrapper:{
+    taskContainer:{
       paddingTop: 10,
       paddingHorizontal: 20,
     },
     task:{
       marginTop: 30,
     },
-    inputWrapper: {
+    inputContainer: {
       position: 'absolute',
       bottom: 30,
       width: '100%',
@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
     },
     input: {
       paddingVertical: 15,
-      paddingHorizontal: 15,  
+      paddingHorizontal: 10,  
       backgroundColor: '#fcfcfe',
-      borderRadius: 60,
+      borderRadius: 10,
       borderColor: '#3b43c4',
       borderWidth: 1,
-      width: 250, 
+      width: 290, 
     },
-    addWrapper:{
+    addContainer:{
       width: 60,
       height: 60, 
       backgroundColor: '#FFF',
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
       borderColor: '#3b43c4',
       borderWidth: 1,
     },
-    addText:{},
+    
   });
 
 export default TodoScreen;

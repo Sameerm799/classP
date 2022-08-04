@@ -19,7 +19,6 @@ const Note = ({item, onPress}) =>{
 
 const styles = StyleSheet.create({
     container: {
-        
         backgroundColor: '#fff',
         padding: 8,
         borderRadius: 10,

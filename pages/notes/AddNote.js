@@ -57,17 +57,17 @@ const AddNoteScreen = ({ visible, onClose, onSubmit, note, isEdit }) =>{
             <TextInput value={desc} onChangeText={(text) => handleChangeText(text, 'desc')}  style={styles.input} placeholder={'Write the details here!'} multiline  />
             
              
-            <View style={styles.buttonWrapper}>
+            <View style={styles.buttonContainer}>
             {title.trim() || desc.trim() ? (
             <TouchableOpacity onPress={handleSubmit}>
-                        <View style={styles.addWrapper}>
+                        <View style={styles.addContainer}>
                             <Text>Add</Text>
                         </View>
             </TouchableOpacity>
             ) : null}
             
                 <TouchableOpacity onPress={closeModal} >
-                            <View style={styles.cancelWrapper}>
+                            <View style={styles.cancelContainer}>
                                 <Text>Cancel</Text>
                             </View>
                 </TouchableOpacity>
@@ -75,7 +75,7 @@ const AddNoteScreen = ({ visible, onClose, onSubmit, note, isEdit }) =>{
             </View>
             </ScrollView>
             <TouchableWithoutFeedback>
-                <View style={[styles.modalBG, StyleSheet.absoluteFillObject]}/>
+                <View style={[styles.modalBackground, StyleSheet.absoluteFillObject]}/>
             </TouchableWithoutFeedback>
         </Modal>
         </>
@@ -87,24 +87,18 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#e4e6f7',
     },
-    modalBG:{
+    modalBackground:{
         flex: 1,
         zIndex: -1,
     },
-    taskWrapper:{
-      paddingTop: 10,
-      paddingHorizontal: 20,
-    },
-    task:{
-      marginTop: 30,
-    },
-    buttonWrapper:{
+
+    buttonContainer:{
         flexDirection: 'row',
         justifyContent: 'center',
         paddingVertical: 15,
         
     },
-    inputWrapper: {
+    inputContainer: {
       position: 'absolute',
       bottom: 30,
       width: '100%',
@@ -134,7 +128,7 @@ const styles = StyleSheet.create({
       width: '95%', 
       margin: 10,
     },
-    addWrapper:{
+    addContainer:{
       width: 60,
       height: 60, 
       backgroundColor: '#FFF',
@@ -144,7 +138,7 @@ const styles = StyleSheet.create({
       borderColor: '#3b43c4',
       borderWidth: 1,
     },
-    cancelWrapper:{
+    cancelContainer:{
       width: 60,
       height: 60, 
       backgroundColor: '#ED2321',
