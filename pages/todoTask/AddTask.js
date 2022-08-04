@@ -8,7 +8,7 @@ const Task = (props) =>{
         <View style={styles.item}>
             <View style={styles.itemLeft}>
             <MaterialCommunityIcons name='check' style={styles.check}/>
-                <Text>{props.text}</Text>
+                <Text style={styles.text}>{props.text}</Text>
             </View>
         </View>
     )
@@ -16,11 +16,10 @@ const Task = (props) =>{
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor:'#fcfcfe',
+        backgroundColor:'#3b43c4',
         padding: 15, 
-        borderRadius: 10,
+        borderRadius: 40,
         borderWidth: 1,
-        borderColor: '#3b43c4',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -32,24 +31,12 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap'
 
     },
-    square: {
-        width:24,
-        height:24,
-        backgroundColor: '#55BCF6',
-        opacity:0.4,
-        borderRadius: 5,
-        marginRight: 15,
-    },
-    
+   text: {
+    color: '#fff'
+   },
     check: {
         paddingRight: 10,
-    },
-    circular: {
-        width: 12,
-        height: 12,
-        borderColor: '#55BCF6',
-        borderWidth: 2, 
-        borderRadius: 5,
+        color: '#fff'
     },
 });
 

@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         padding: 8,
         borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#3b43c4',
         margin:8,
     },
     title:{
