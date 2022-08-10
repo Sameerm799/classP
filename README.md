@@ -8,11 +8,11 @@ iDIDit is a productivity application to assist users in their everyday lives. Th
 organized. With iDIDit users can keep record of the hard work they have accomplished. React Native 
 allows the application to operate smoothly and provide the organization the user needs. 
 
-#To-do list 
+# To-do list 
 Allows user to input tasks. 
 
-#Notes
+# Notes
 Allow user to input longer content. 
 
-#Showcase
+# Showcase
 Allow user to input image and description. 
